@@ -1,0 +1,25 @@
+// This file is a client-side fallback/seed. The server serves the canonical data at /api/products.
+// You may update this file with local images/overrides if needed.
+export const seedProducts = [
+  // NOTE: We keep minimal set for offline dev; production reads /api/products
+  {
+    id: 'iphone-11-pro-64',
+    displayName: 'iPhone 11 Pro (64GB)',
+    storageVariant: '64GB',
+    price: 'R4499',
+    priceNumber: 4499,
+    shortDescription: 'Pre-loved',
+    imageUrls: ['/assets/iphone11pro.jpg', '/assets/iphone11pro-front.jpg', '/assets/iphone11pro-back.jpg', '/assets/iphone11pro-side.jpg'],
+    whatsappMessage: 'Hi Thabo, I wanted to enquire regarding the iPhone 11 Pro (64GB).'
+  },
+  {
+    id: 'iphone-13-256',
+    displayName: 'iPhone 13 (256GB)',
+    storageVariant: '256GB',
+    price: 'R7499',
+    priceNumber: 7499,
+    shortDescription: 'Pre-loved',
+    "imageUrls": ["/assets/iphone13-front.jpg","/assets/iphone13-back.jpg","/assets/iphone13-side.jpg"],
+    whatsappMessage: 'Hi Thabo, I wanted to enquire regarding the iPhone 13 (256GB).'
+  }
+];
