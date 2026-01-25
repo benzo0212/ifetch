@@ -1,63 +1,79 @@
 // server/index.js
-// Minimal Express API to serve product JSON for demo (updated to reliably resolve client/dist)
+// Express 4 API + static client serving (Render-ready)
+
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 4000;
-import cors from 'cors';
 
+/* -------------------- MIDDLEWARE -------------------- */
 
-
-// Allow CORS for dev/demo
-app.use(cors());
-app.use(express.json());
+// Enable CORS
 app.use(cors({
   origin: [
     'http://localhost:5173',
-    'https://ifetch.co.za'
-  ]
+    'https://ifetch.co.za',
+    'https://www.ifetch.co.za'
+  ],
+  methods: ['GET'],
 }));
 
-// Serve API data from data/products.json
+app.use(express.json());
+
+/* -------------------- DATA -------------------- */
+
 const products = require('./data/products.json');
+
+/* -------------------- API ROUTES -------------------- */
+
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok' });
+});
 
 app.get('/api/products', (req, res) => {
   const q = (req.query.q || '').toLowerCase();
+  const sort = req.query.sort || '';
+
   let results = products.filter(p =>
     p.displayName.toLowerCase().includes(q) ||
     (p.storageVariant || '').toLowerCase().includes(q)
   );
-  const sort = req.query.sort || '';
-  if (sort === 'price_asc') results.sort((a,b)=>a.priceNumber - b.priceNumber);
-  if (sort === 'price_desc') results.sort((a,b)=>b.priceNumber - a.priceNumber);
+
+  if (sort === 'price_asc') {
+    results.sort((a, b) => a.priceNumber - b.priceNumber);
+  }
+  if (sort === 'price_desc') {
+    results.sort((a, b) => b.priceNumber - a.priceNumber);
+  }
+
   res.json(results);
 });
 
 app.get('/api/products/:id', (req, res) => {
-  const p = products.find(x => String(x.id) === String(req.params.id));
-  if (!p) return res.status(404).json({error: 'Product not found'});
-  res.json(p);
+  const product = products.find(p => String(p.id) === String(req.params.id));
+  if (!product) {
+    return res.status(404).json({ error: 'Product not found' });
+  }
+  res.json(product);
 });
 
-app.get('/api/health', (_, res) => res.json({status: 'ok'}));
+/* -------------------- SERVE FRONTEND -------------------- */
 
-// --------------------------------------------------
-// Serve built client (SPA)
-// We use path.resolve so the path is correct no matter where node was started from.
+// Path to Vite build output
 const clientDistPath = path.resolve(__dirname, '..', 'client', 'dist');
 
-// If dist exists, serve it. This allows the server to run in dev even if dist is absent,
-// but in production you will build the client and dist will be present.
+// Serve static files if build exists
 app.use(express.static(clientDistPath));
 
-// SPA fallback - **Express 4** supports '*' so using it is fine.
-// If you see errors related to path-to-regexp, ensure express@4 is installed.
+// SPA fallback
 app.get('*', (req, res) => {
   res.sendFile(path.join(clientDistPath, 'index.html'));
 });
 
+/* -------------------- START SERVER -------------------- */
+
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`✅ iFetch server running on port ${PORT}`);
 });
