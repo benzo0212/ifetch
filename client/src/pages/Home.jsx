@@ -13,16 +13,15 @@ export default function Home() {
   useEffect(() => {
     async function loadProducts() {
       try {
-        const res = await api.get('/products', {
+        const res = await api.get('/api/products', {
           params: { q, sort }
         });
+
         setProducts(res.data);
         setError('');
       } catch (err) {
         console.error('❌ Failed to load products:', err);
-        setError(
-          'Unable to load products right now. Please try again later.'
-        );
+        setError('Unable to load products right now. Please try again later.');
       }
     }
 
