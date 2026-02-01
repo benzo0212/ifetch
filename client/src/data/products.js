@@ -3,23 +3,251 @@
 export const seedProducts = [
   // NOTE: We keep minimal set for offline dev; production reads /api/products
   {
-    id: 'iphone-11-pro-64',
-    displayName: 'iPhone 11 Pro (64GB)',
-    storageVariant: '64GB',
-    price: 'R4499',
-    priceNumber: 4499,
-    shortDescription: 'Pre-loved',
-    imageUrls: ['/assets/iphone11pro.jpg', '/assets/iphone11pro-front.jpg', '/assets/iphone11pro-back.jpg', '/assets/iphone11pro-side.jpg'],
-    whatsappMessage: 'Hi Thabo, I wanted to enquire regarding the iPhone 11 Pro (64GB).'
+    "id": "iphone-11-pro-64",
+    "displayName": "iPhone 11 Pro (64GB)",
+    "storageVariant": "64GB",
+    "price": "R4499",
+    "priceNumber": 4499,
+    "shortDescription":"Pre-loved iPhone 11 Pro, 64GB variant.",
+    "fullSpecifications":[
+      {"Display":"5.8-inch Super Retina XDR display"},
+      {"Chip":"A13 Bionic"},
+      {"RAM":"4 GB (typical)"},
+      {"Camera":"Triple 12MP Ultra Wide, Wide and Telephoto"},
+      {"Battery":"~3046 mAh (manufacturer spec varies)"},
+      {"ReleaseYear":"2019"},
+      {"Colors":"Space Gray, Silver, Gold, Midnight Green"}
+    ],
+    "conditionNote":"Pre-loved",
+    "imageUrls":["/assets/iphone11pro.jpg", 
+                "/assets/iphone11pro-64-front.jpg"],
+    "whatsappMessage":"Hi Thabo, I wanted to enquire regarding the iPhone 11 Pro (64GB)."
   },
+
   {
-    id: 'iphone-13-256',
-    displayName: 'iPhone 13 (256GB)',
-    storageVariant: '256GB',
-    price: 'R7499',
-    priceNumber: 7499,
-    shortDescription: 'Pre-loved',
-    "imageUrls": ["/assets/iphone13-front.jpg","/assets/iphone13-back.jpg","/assets/iphone13-side.jpg"],
-    whatsappMessage: 'Hi Thabo, I wanted to enquire regarding the iPhone 13 (256GB).'
+    "id": "iphone-11-pro-256",
+    "displayName": "iPhone 11 Pro (256GB)",
+    "storageVariant":"256GB",
+    "price":"R4999",
+    "priceNumber":4999,
+    "shortDescription":"Pre-loved iPhone 11 Pro, 256GB variant.",
+    "fullSpecifications":[
+      {"Display":"5.8-inch Super Retina XDR"},
+      {"Chip":"A13 Bionic"},
+      {"RAM":"4 GB (typical)"},
+      {"Camera":"Triple 12MP"},
+      {"ReleaseYear":"2019"}
+    ],
+    "conditionNote":"Pre-loved",
+    "imageUrls":["/assets/iphone11pro-256.jpg",
+                "/assets/iphone11pro-256-front.jpg",
+                "/assets/iphone11pro-256-back.jpg",
+                "/assets/iphone11pro-256-side.jpg"],
+    "whatsappMessage":"Hi Thabo, I wanted to enquire regarding the iPhone 11 Pro (256GB)."
+  },
+
+  {
+    "id":"iphone-11-pro-max-64",
+    "displayName":"iPhone 11 Pro Max (64GB)",
+    "storageVariant":"64GB",
+    "price":"R5199",
+    "priceNumber":5199,
+    "shortDescription":"Pre-loved iPhone 11 Pro Max, 64GB.",
+    "fullSpecifications":[
+      {"Display":"6.5-inch Super Retina XDR display"},
+      {"Chip":"A13 Bionic"},
+      {"Camera":"Triple 12MP"},
+      {"ReleaseYear":"2019"}
+    ],
+    "conditionNote":"Pre-loved",
+    "imageUrls":["/assets/iphone11promax.jpg", 
+                "/assets/iphone11promax-64-front.jpg", 
+                "/assets/iphone11promax-64-back.jpg", 
+                "/assets/iphone11promax-64-back.jpg", 
+                "/assets/iphone11promax-64-side.jpg"],
+    "whatsappMessage":"Hi Thabo, I wanted to enquire regarding the iPhone 11 Pro Max (64GB)."
+  },
+
+  {
+    "id":"iphone-11-pro-max-256",
+    "displayName":"iPhone 11 Pro Max (256GB)",
+    "storageVariant":"256GB",
+    "price":"R5399",
+    "priceNumber":5399,
+    "shortDescription":"Pre-loved iPhone 11 Pro Max, 256GB.",
+    "fullSpecifications":[
+      {"Display":"6.5-inch Super Retina XDR"},
+      {"Chip":"A13 Bionic"},
+      {"Camera":"Triple 12MP"},
+      {"ReleaseYear":"2019"}
+    ],
+    "conditionNote":"Pre-loved",
+    "imageUrls":["/assets/iphone11promax-256.jpg", 
+                "/assets/iphone11promax-256-front.jpg",
+                "/assets/iphone11promax-256-back.jpg",
+                "/assets/iphone11promax-256-side.jpg"],
+    "whatsappMessage":"Hi Thabo, I wanted to enquire regarding the iPhone 11 Pro Max (256GB)."
+  },
+
+  {
+    "id":"iphone-12-mini-128",
+    "displayName":"iPhone 12 Mini (128GB)",
+    "storageVariant":"128GB",
+    "price":"R5499",
+    "priceNumber":5499,
+    "shortDescription":"Pre-loved iPhone 12 Mini, 128GB.",
+    "fullSpecifications":[
+      {"Display":"5.4-inch Super Retina XDR display"},
+      {"Chip":"A14 Bionic"},
+      {"Camera":"Dual 12MP Ultra Wide and Wide"},
+      {"ReleaseYear":"2020"}
+    ],
+    "conditionNote":"Pre-loved",
+    "imageUrls":["/assets/iphone12mini-128.jpg",
+                "/assets/iphone12mini-128-front.jpg",
+                "/assets/iphone12mini-128-back.jpg",
+                "/assets/iphone12mini-128-side.jpg"],
+    "whatsappMessage":"Hi Thabo, I wanted to enquire regarding the iPhone 12 Mini (128GB)."
+  },
+
+  {
+    "id":"iphone-12-mini-256",
+    "displayName":"iPhone 12 Mini (256GB)",
+    "storageVariant":"256GB",
+    "price":"R5799",
+    "priceNumber":5799,
+    "shortDescription":"Pre-loved iPhone 12 Mini, 256GB.",
+    "fullSpecifications":[
+      {"Display":"5.4-inch Super Retina XDR display"},
+      {"Chip":"A14 Bionic"},
+      {"Camera":"Dual 12MP"},
+      {"ReleaseYear":"2020"}
+    ],
+    "conditionNote":"Pre-loved",
+    "imageUrls":["/assets/iphone12mini-256.jpg",
+                "/assets/iphone12mini-256-front.jpg",
+                "/assets/iphone12mini-256-back.jpg",
+                "/assets/iphone12mini-256-side.jpg"],
+    "whatsappMessage":"Hi Thabo, I wanted to enquire regarding the iPhone 12 Mini (256GB)."
+  },
+
+  {
+    "id":"iphone-12-128",
+    "displayName":"iPhone 12 (128GB)",
+    "storageVariant":"128GB",
+    "price":"R5799",
+    "priceNumber":5799,
+    "shortDescription":"Pre-loved iPhone 12, 128GB.",
+    "fullSpecifications":[
+      {"Display":"6.1-inch Super Retina XDR display"},
+      {"Chip":"A14 Bionic"},
+      {"Camera":"Dual 12MP Ultra Wide and Wide"},
+      {"ReleaseYear":"2020"}
+    ],
+    "conditionNote":"Pre-loved",
+    "imageUrls":["/assets/iphone12-128.jpg",
+                "/assets/iphone12-128-front.jpg",
+                "/assets/iphone12-128-back.jpg",
+                "/assets/iphone12-128-side.jpg"],
+    "whatsappMessage":"Hi Thabo, I wanted to enquire regarding the iPhone 12 (128GB)."
+  },
+
+  {
+    "id":"iphone-12-256",
+    "displayName":"iPhone 12 (256GB)",
+    "storageVariant":"256GB",
+    "price":"R6199",
+    "priceNumber":6199,
+    "shortDescription":"Pre-loved iPhone 12, 256GB.",
+    "fullSpecifications":[
+      {"Display":"6.1-inch Super Retina XDR"},
+      {"Chip":"A14 Bionic"}
+    ],
+    "conditionNote":"Pre-loved",
+    "imageUrls":["/assets/iphone12-256.jpg",
+                "/assets/iphone12-256-front.jpg",
+                "/assets/iphone12-256-back.jpg",
+                "/assets/iphone12-256-side.jpg"],
+    "whatsappMessage":"Hi Thabo, I wanted to enquire regarding the iPhone 12 (256GB)."
+  },
+
+  {
+    "id":"iphone-12-pro-max-128",
+    "displayName":"iPhone 12 Pro Max (128GB)",
+    "storageVariant":"128GB",
+    "price":"R6499",
+    "priceNumber":6499,
+    "shortDescription":"Pre-loved iPhone 12 Pro Max, 128GB.",
+    "fullSpecifications":[
+      {"Display":"6.7-inch Super Retina XDR display"},
+      {"Chip":"A14 Bionic"},
+      {"Camera":"Triple 12MP + LiDAR"},
+      {"ReleaseYear":"2020"}
+    ],
+    "conditionNote":"Pre-loved",
+    "imageUrls":["/assets/iphone12promax-128.jpg",
+                "/assets/iphone12promax-128-front.jpg",
+                "/assets/iphone12promax-128-back.jpg",
+                "/assets/iphone12promax-128-side.jpg"],
+    "whatsappMessage":"Hi Thabo, I wanted to enquire regarding the iPhone 12 Pro Max (128GB)."
+  },
+
+  {
+    "id":"iphone-12-pro-max-256",
+    "displayName":"iPhone 12 Pro Max (256GB)",
+    "storageVariant":"256GB",
+    "price":"R6799",
+    "priceNumber":6799,
+    "shortDescription":"Pre-loved iPhone 12 Pro Max, 256GB.",
+    "fullSpecifications":[
+      {"Display":"6.7-inch Super Retina XDR"},
+      {"Chip":"A14 Bionic"}
+    ],
+    "conditionNote":"Pre-loved",
+    "imageUrls":["/assets/iphone12promax-256.jpg",
+                "/assets/iphone12promax-256-front.jpg",
+                "/assets/iphone12promax-256-back.jpg",
+                "/assets/iphone12promax-256-side.jpg"],
+    "whatsappMessage":"Hi Thabo, I wanted to enquire regarding the iPhone 12 Pro Max (256GB)."
+  },
+
+  {
+    "id":"iphone-13-128",
+    "displayName":"iPhone 13 (128GB)",
+    "storageVariant":"128GB",
+    "price":"R7199",
+    "priceNumber":7199,
+    "shortDescription":"Pre-loved iPhone 13, 128GB.",
+    "fullSpecifications":[
+      {"Display":"6.1-inch Super Retina XDR display"},
+      {"Chip":"A15 Bionic"},
+      {"Camera":"Dual 12MP with sensor-shift OIS (Wide)"},
+      {"ReleaseYear":"2021"}
+    ],
+    "conditionNote":"Pre-loved",
+    "imageUrls":["/assets/iphone13-128.jpg",
+                "/assets/iphone13-128-front.jpg",
+                "/assets/iphone13-128-back.jpg",
+                "/assets/iphone13-128-side.jpg"],
+    "whatsappMessage":"Hi Thabo, I wanted to enquire regarding the iPhone 13 (128GB)."
+  },
+
+  {
+    "id":"iphone-13-256",
+    "displayName":"iPhone 13 (256GB)",
+    "storageVariant":"256GB",
+    "price":"R7499",
+    "priceNumber":7499,
+    "shortDescription":"Pre-loved iPhone 13, 256GB.",
+    "fullSpecifications":[
+      {"Display":"6.1-inch Super Retina XDR"},
+      {"Chip":"A15 Bionic"}
+    ],
+    "conditionNote":"Pre-loved",
+    "imageUrls":["/assets/iphone13-256.png",
+                "/assets/iphone13-256-front.png",
+                "/assets/iphone13-256-back.png",
+                "/assets/iphone13-256-side.png"],
+    "whatsappMessage":"Hi Thabo, I wanted to enquire regarding the iPhone 13 (256GB)."
   }
 ];

@@ -1,8 +1,7 @@
-// client/src/pages/ProductDetail.jsx
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import api from '../api/axios';
 import Lightbox from '../components/Lightbox';
+import { seedProducts } from '../data/products';
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -19,26 +18,22 @@ export default function ProductDetail() {
   };
 
   useEffect(() => {
-    async function load() {
-      try {
-        const res = await api.get(`/api/products/${id}`);
-        const p = res.data;
-        setProduct(p);
-        setImages((p.imageUrls || []).map(normalizeUrl));
-      } catch {
-        const { seedProducts } = await import('../data/products.js');
-        const p = seedProducts.find(x => x.id === id);
-        if (p) {
-          setProduct(p);
-          setImages((p.imageUrls || []).map(normalizeUrl));
-        }
-      }
+    // FRONTEND-ONLY product lookup
+    const p = seedProducts.find(x => x.id === id);
+
+    if (p) {
+      setProduct(p);
+      setImages((p.imageUrls || []).map(normalizeUrl));
     }
-    load();
   }, [id]);
 
   if (!product) {
-    return <div className="container section">Loading product...</div>;
+    return (
+      <div className="container section">
+        <Link to="/" className="text-muted">← Back to products</Link>
+        <p style={{ marginTop: '1rem' }}>Product not found.</p>
+      </div>
+    );
   }
 
   const waText = encodeURIComponent(
@@ -81,13 +76,11 @@ export default function ProductDetail() {
           <p className="text-muted">{product.shortDescription}</p>
           <h3 className="price">{product.price}</h3>
 
-          {/* BASIC INFO */}
           <ul className="key-info">
             <li><strong>Storage:</strong> {product.storageVariant}</li>
-            <li><strong>Condition:</strong> {product.conditionNote}</li>
+            <li><strong>Condition:</strong> {product.conditionNote || 'Pre-loved'}</li>
           </ul>
 
-          {/* SPECIFICATIONS */}
           {Array.isArray(product.fullSpecifications) && (
             <>
               <h4 className="spec-title">Specifications</h4>
@@ -105,7 +98,6 @@ export default function ProductDetail() {
             </>
           )}
 
-          {/* PAYMENT OPTIONS */}
           <h4 className="spec-title">Payment Options</h4>
           <ul className="payment-options">
             <li>💵 Cash on collection</li>
@@ -113,25 +105,11 @@ export default function ProductDetail() {
             <li>📆 3-Month Layby</li>
           </ul>
 
-          {/* DELIVERY OPTIONS */}
           <h4 className="spec-title">Delivery Options</h4>
           <div className="delivery-options">
             <img src="/assets/paxi-logo.png" alt="Paxi" />
             <img src="/assets/postnet-logo.png" alt="PostNet" />
             <img src="/assets/courier-guy-logo.png" alt="Courier Guy" />
-          </div>
-
-          {/* TERMS SUMMARY */}
-          <div className="terms-summary">
-            <h4>Terms & Conditions (Summary)</h4>
-            <ul>
-              <li>Delivery within South Africa only</li>
-              <li>3–5 business days delivery time</li>
-              <li>Layby requires a deposit</li>
-              <li>Phone released after full payment</li>
-              <li>30-day return (conditions apply)</li>
-            </ul>
-            <Link to="/faq" className="text-muted">View full terms in FAQ</Link>
           </div>
 
           <button
